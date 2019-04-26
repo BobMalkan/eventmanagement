@@ -126,7 +126,7 @@ public class DefaultEventManagerTest
     public void testSendThroughSubEventWithSameClass()
     {
         EventListenerMock eventListenerMock = new EventListenerMock(new Class[]{SubEvent.class});
-        eventManager.registerListener("some.key1", eventListenerMock);
+        eventManager.registerListener("some.key2", eventListenerMock);
         eventManager.publishEvent(new SubEvent(this));
         assertTrue(eventListenerMock.isCalled());
     }
