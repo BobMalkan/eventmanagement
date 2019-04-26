@@ -109,4 +109,26 @@ public class DefaultEventManagerTest
         {
         }
     }
+	
+	 //TASK 1 Trigger from SubEvent class 
+    @Test
+    //FALSE
+    public void testSendThroughSubEventWithDifferClass()
+    {
+        EventListenerMock eventListenerMock = new EventListenerMock(new Class[]{SubEvent.class});
+        eventManager.registerListener("some.key1", eventListenerMock);
+        eventManager.publishEvent(new SimpleEvent(this));
+        assertFalse(eventListenerMock.isCalled());
+    }
+    
+    @Test
+    //TRUE
+    public void testSendThroughSubEventWithSameClass()
+    {
+        EventListenerMock eventListenerMock = new EventListenerMock(new Class[]{SubEvent.class});
+        eventManager.registerListener("some.key1", eventListenerMock);
+        eventManager.publishEvent(new SubEvent(this));
+        assertTrue(eventListenerMock.isCalled());
+    }
+    
 }
