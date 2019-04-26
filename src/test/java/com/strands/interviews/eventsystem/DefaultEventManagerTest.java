@@ -130,5 +130,28 @@ public class DefaultEventManagerTest
         eventManager.publishEvent(new SubEvent(this));
         assertTrue(eventListenerMock.isCalled());
     }
+	
+	 @Test
+    //Task 2 Newly added Listener and  NewEvent junit test
+    //TRUE
+    public void testNewListenerwithNewEventClass()
+    {
+        EventListenerMock eventListenerMock = new EventListenerMock(new Class[]{NewEvent.class});
+        eventManager.registerListener("some.key3", eventListenerMock);
+        eventManager.publishEvent(new NewEvent(this));
+        assertTrue(eventListenerMock.isCalled());
+    }
+    
+    
+    @Test
+ 
+    //FALSE
+    public void testNewListenerwithDifferentClass()
+    {
+        EventListenerMock eventListenerMock = new EventListenerMock(new Class[]{NewEvent.class});
+        eventManager.registerListener("some.key4", eventListenerMock);
+        eventManager.publishEvent(new SimpleEvent(this));
+        assertFalse(eventListenerMock.isCalled());
+    }
     
 }
