@@ -1,0 +1,8 @@
+com\strands\interviews\eventsystem\impl\DefaultEventManager.class
+com\strands\interviews\eventsystem\EventManager.class
+com\strands\interviews\eventsystem\events\SubEvent.class
+com\strands\interviews\eventsystem\events\Creation.class
+com\strands\interviews\eventsystem\events\CreationEvent.class
+com\strands\interviews\eventsystem\InterviewEventListener.class
+com\strands\interviews\eventsystem\InterviewEvent.class
+com\strands\interviews\eventsystem\events\SimpleEvent.class
